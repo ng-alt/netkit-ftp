@@ -1,3 +1,9 @@
+5-Nov-2001:
+	Fix some broken strncpys.
+
+30-Jul-2000:
+	netkit-ftp-0.17 is released.
+
 8-Jul-2000:
 	Fix misused printf-function call (not %n-exploitable though).
 

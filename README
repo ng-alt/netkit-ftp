@@ -1,6 +1,13 @@
-This is netkit-ftp-0.17 for Linux.
+This is netkit-ftp-0.18-pre1 for Linux.
 
-This package updates netkit-ftp-0.16.
+This is a PRERELEASE version. It should only be used by people willing
+to deal with the possible consequences of using half-baked software.
+
+If you received this version with a Linux distribution, please switch
+to an official release immediately and complain to the maintainers of
+your distribution.
+
+This package updates netkit-ftp-0.17.
 
 If you're reading this off a CD, go right away and check the net
 archives for later versions and security fixes. As of this writing the
@@ -18,7 +25,7 @@ Requires:
 	well.
 
 Security:
-	This release contains no security fixes relative to netkit-ftp-0.16.
+	This release contains no security fixes relative to netkit-ftp-0.17.
 	However, versions prior to netkit-ftp-0.16 are insecure and should
 	not be used.
 
@@ -50,22 +57,21 @@ Installation:
 	compiler warnings.)
 
 DEC CC:
-	The DEC compiler for the Alpha is now freely available. This
-	is a much better compiler with gcc, that is, it generates much
-	better code. If you have the DEC compiler, you can explicitly
-	use the DEC compiler instead of gcc by configuring like this:
+	DEC released their Alpha compiler for use on Linux as freeware.
+	It is a much better compiler with gcc, that is, it generates
+	much better code. If you have the DEC compiler, you can
+	explicitly use the DEC compiler instead of gcc by configuring
+	like this:
 
 		./configure --with-c-compiler=ccc
 
-	It is known to generate spurious warnings on some files. Also,
-	some headers from some versions of glibc confuse it; that may
-	prevent	netkit from working. Other problems should be reported
-	as bugs.
+	Please report any problems you encounter using it.
+
 
 Bugs:
 	Please make sure the header files in /usr/include match the
-	libc version installed in /lib and /usr/lib. If you have weird
-	problems this is the most likely culprit.
+	libc version installed in /lib and /usr/lib. This is a fairly
+	common source of weird problems.
 
 	Also, before reporting a bug, be sure you're working with the
 	latest version.
@@ -89,21 +95,20 @@ Bugs:
 
 	Mail should be sent to: netbug@ftp.uk.linux.org
 
+	Note that (due to the spam problem) this address does not have
+	an autoresponder, so mail may not be answered rapidly. However,
+	it does eventually get read.
 
-Early in April 2000, a hacker broke into the machine that was hosting
-the netkit bug database for me and trashed it. Unfortunately, it seems
-backups hadn't gotten done for a while, so three months of mail (since
-mid-January) was lost. So, if you sent something and didn't hear back,
-or you sent something, heard back, but the changes failed to appear in
-this release (unlikely but possible) - please resend.
 
-Please see http://www.hcs.harvard.edu/~dholland/computers/netkit.html
-if you are curious why it was so long between the 0.10 and 0.16 releases.
 
-Future plans for netkit maintenance are still up in the air, but in the
-meantime new releases will still appear from time to time. I don't have
-a whole lot of cycles to spare to work on netkit, so things are likely
-to continue to be fairly slow.
+NetKit 0.18 has been pushed out the door before it was really properly
+ready. It does not include everything that it might - many patches
+that have been received have not been merged yet. I do not have a
+whole lot of time to spare for netkit, so while I hope to get another
+release out with some of those patches before too long, it may take
+quite a while.
+
+The netkit web page may be found at http://www.linux.org.uk/~netbug.
 
 David A. Holland
-23 July 2000
+1 August 2002

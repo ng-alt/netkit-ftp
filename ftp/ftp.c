@@ -35,7 +35,7 @@
  * From: @(#)ftp.c	5.38 (Berkeley) 4/22/91
  */
 char ftp_rcsid[] = 
-  "$Id: ftp.c,v 1.25 1999/12/13 20:33:20 dholland Exp $";
+  "$Id: ftp.c,v 1.26 2001/11/05 12:44:55 dholland Exp $";
 
 #include <sys/param.h>
 #include <sys/stat.h>
@@ -1351,19 +1351,19 @@ pswitch(int flag)
 	mcase = op->mcse;
 	ip->ntflg = ntflag;
 	ntflag = op->ntflg;
-	(void) strncpy(ip->nti, ntin, 16);
-	(ip->nti)[strlen(ip->nti)] = '\0';
+	(void) strncpy(ip->nti, ntin, sizeof(ip->nti));
+	ip->nti[sizeof(ip->nti)-1] = 0;
 	(void) strcpy(ntin, op->nti);
-	(void) strncpy(ip->nto, ntout, 16);
-	(ip->nto)[strlen(ip->nto)] = '\0';
+	(void) strncpy(ip->nto, ntout, sizeof(ip->nto));
+	ip->nto[sizeof(ip->nto)-1] = 0;
 	(void) strcpy(ntout, op->nto);
 	ip->mapflg = mapflag;
 	mapflag = op->mapflg;
-	(void) strncpy(ip->mi, mapin, MAXPATHLEN - 1);
-	(ip->mi)[strlen(ip->mi)] = '\0';
+	(void) strncpy(ip->mi, mapin, sizeof(ip->mi));
+	ip->mi[sizeof(ip->mi)-1] = 0;
 	(void) strcpy(mapin, op->mi);
-	(void) strncpy(ip->mo, mapout, MAXPATHLEN - 1);
-	(ip->mo)[strlen(ip->mo)] = '\0';
+	(void) strncpy(ip->mo, mapout, sizeof(ip->mo));
+	ip->mo[sizeof(ip->mo)-1] = 0;
 	(void) strcpy(mapout, op->mo);
 	(void) signal(SIGINT, oldintr);
 	if (abrtflag) {
