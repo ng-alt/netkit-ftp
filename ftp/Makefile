@@ -1,7 +1,12 @@
 all: ftp
 
-include ../MCONFIG
+include ../../config.mk
+#include ../MCONFIG
 include ../MRULES
+
+CFLAGS+=-O2 -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -Winline 
+LIBTERMCAP=-lncurses
+USE_GLIBC=1
 
 ifeq ($(USE_READLINE),1)
 CFLAGS += -D__USE_READLINE__
@@ -16,11 +21,9 @@ cmds.o cmdtab.o: ftp_var.h pathnames.h cmds.h
 cmds.o glob.o: glob.h
 
 install: ftp
-	install -s -m$(BINMODE) ftp $(INSTALLROOT)$(BINDIR)
-	ln -sf ftp $(INSTALLROOT)$(BINDIR)/pftp
-	install -m$(MANMODE) ftp.1 $(INSTALLROOT)$(MANDIR)/man1
-	ln -sf ftp.1 $(INSTALLROOT)$(MANDIR)/man1/pftp.1
-	install -m$(MANMODE) netrc.5 $(INSTALLROOT)$(MANDIR)/man5
+	install -d $(TARGETDIR)/usr/sbin
+	install -m 755 ftp $(TARGETDIR)/usr/sbin
+	$(STRIP) $(TARGETDIR)/usr/sbin/ftp
 
 clean:
 	rm -f *.o ftp

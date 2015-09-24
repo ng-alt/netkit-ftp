@@ -109,12 +109,17 @@ main(volatile int argc, char **volatile argv)
 
 	tick = 0;
 
+#if 0
 	sp = getservbyname("ftp", "tcp");
 	if (sp == 0) {
 		fprintf(stderr, "ftp: ftp/tcp: unknown service\n");
 		exit(1);
 	}
 	ftp_port = sp->s_port;
+#else
+	ftp_port = htons(21);
+#endif
+
 	doglob = 1;
 	interactive = 1;
 	autologin = 1;
